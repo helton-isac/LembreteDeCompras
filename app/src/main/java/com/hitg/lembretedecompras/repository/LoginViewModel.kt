@@ -1,13 +1,14 @@
 package com.hitg.lembretedecompras.repository
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.hitg.lembretedecompras.models.RequestState
 import com.hitg.lembretedecompras.models.Usuario
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val usuarioRepository = UsuarioRepository()
+    private val usuarioRepository = UsuarioRepository(application)
 
     val loginState = MutableLiveData<RequestState<String>>()
 
