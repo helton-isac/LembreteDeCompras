@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.hitg.lembretedecompras.R
 import com.hitg.lembretedecompras.models.RequestState
 import com.hitg.lembretedecompras.models.Usuario
-import com.hitg.lembretedecompras.repository.LoginViewModel
 import com.hitg.lembretedecompras.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
