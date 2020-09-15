@@ -1,9 +1,10 @@
 package com.hitg.lembretedecompras
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -13,6 +14,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         iniciarAnimacao()
+        esconderTeclado()
     }
 
     private fun iniciarAnimacao() {
@@ -23,4 +25,9 @@ class LoginActivity : AppCompatActivity() {
         containerLogin.startAnimation(animacaoDoMascote)
         ivLogin.startAnimation(animacaoDoFormulario)
     }
+
+    private fun esconderTeclado() {
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+    }
+
 }
