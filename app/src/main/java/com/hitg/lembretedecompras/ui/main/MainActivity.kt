@@ -1,7 +1,8 @@
-package com.hitg.lembretedecompras
+package com.hitg.lembretedecompras.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hitg.lembretedecompras.R
 
 class MainActivity : AppCompatActivity() {
 
