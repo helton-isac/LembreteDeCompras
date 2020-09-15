@@ -29,6 +29,8 @@ class LoginActivity : AppCompatActivity() {
         iniciarListener()
         iniciarViewModel()
         iniciarObserver()
+
+        loginViewModel.getUsuarioLogado()
     }
 
     private fun iniciarAnimacao() {
@@ -79,6 +81,17 @@ class LoginActivity : AppCompatActivity() {
                     val animShake = AnimationUtils.loadAnimation(this, R.anim.shake)
                     containerLogin.startAnimation(animShake)
                     tvPasswordFeedback.text = it.throwable.message
+                }
+                is RequestState.Loading -> {
+                }
+            }
+        })
+        loginViewModel.usuarioLogadoState.observe(this, Observer {
+            when (it) {
+                is RequestState.Success -> {
+                    etEmail.setText(it.data)
+                }
+                is RequestState.Error -> {
                 }
                 is RequestState.Loading -> {
                 }

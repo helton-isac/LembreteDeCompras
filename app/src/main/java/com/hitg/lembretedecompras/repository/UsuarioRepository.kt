@@ -25,4 +25,16 @@ class UsuarioRepository(val context: Context) {
 
         return response
     }
+
+    fun getUsuarioLogado(): LiveData<RequestState<String>> {
+        val response = MutableLiveData<RequestState<String>>()
+
+        val pref = context.getSharedPreferences("lembretedecompras", 0)
+        val email = pref.getString("email", "") ?: ""
+        response.value = RequestState.Success(email)
+
+        return response
+    }
+
+
 }

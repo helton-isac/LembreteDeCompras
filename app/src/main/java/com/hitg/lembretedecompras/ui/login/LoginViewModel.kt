@@ -13,6 +13,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     val loginState = MutableLiveData<RequestState<String>>()
 
+    val usuarioLogadoState = MutableLiveData<RequestState<String>>()
+
+    fun getUsuarioLogado() {
+        usuarioLogadoState.value = usuarioRepository.getUsuarioLogado().value
+    }
+
     fun doLogin(usuario: Usuario) {
         loginState.value = usuarioRepository.logar(usuario).value
     }
