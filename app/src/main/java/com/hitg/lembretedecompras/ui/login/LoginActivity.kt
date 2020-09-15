@@ -49,6 +49,18 @@ class LoginActivity : AppCompatActivity() {
         btLogin.setOnClickListener {
             loginViewModel.doLogin(Usuario(etEmail.text.toString(), etPassword.text.toString()))
         }
+
+        etPassword.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                ivLogin.speed = 2f
+                ivLogin.setMinAndMaxProgress(0.0f, 0.65f)
+            } else {
+                ivLogin.speed = 1f
+                ivLogin.setMinAndMaxProgress(0.65f, 1.0f)
+            }
+            ivLogin.playAnimation()
+        }
+
     }
 
 
